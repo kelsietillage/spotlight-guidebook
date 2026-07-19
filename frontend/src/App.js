@@ -1,5 +1,5 @@
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/context/AuthContext";
 import Layout from "@/components/Layout";
 import Home from "@/pages/Home";
@@ -18,7 +18,7 @@ import { Toaster } from "@/components/ui/sonner";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <AuthProvider>
           <Layout>
             <Routes>
@@ -37,7 +37,7 @@ function App() {
           </Layout>
           <Toaster richColors position="top-right" />
         </AuthProvider>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
