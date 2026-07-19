@@ -1,0 +1,113 @@
+{
+  "theme": "light",
+  "archetype": "LUXURY & EDITORIAL (The Blueprint)",
+  "typography": {
+    "headings": "Cormorant Garamond (Serif) - Elegant, classic editorial feel.",
+    "body": "Outfit or Manrope (Sans-serif) - Clean, modern legibility.",
+    "rules": [
+      "Use tracking-tight for headlines (H1/H2).",
+      "Overlines must be uppercase, tiny, wide spacing (tracking-[0.2em]).",
+      "Do NOT use Inter, Roboto, Open Sans for headings."
+    ]
+  },
+  "colors": {
+    "background": "#F9F8F6",
+    "foreground": "#0A0F1A",
+    "primary": "#114488",
+    "primary_foreground": "#FFFFFF",
+    "secondary": "#55BBEE",
+    "accent": "#C5A059",
+    "muted": "#EBE8E3",
+    "border": "#D5D1CB",
+    "rules": [
+      "Do not use full-screen gradients.",
+      "Never use pure black or pure gray. Tint neutral grays with blue.",
+      "Use Jaguar Gold (#C5A059) for subtle accents and important CTAs.",
+      "Royal Blue (#114488) acts as the dominant brand pillar."
+    ]
+  },
+  "visual_enhancers": {
+    "shadows": [
+      "Ambient, diffused shadows for editorial images.",
+      "Avoid heavy drop shadows. Use 1px borders instead of shadows for standard containers."
+    ],
+    "surfaces": [
+      "Use 'Crystal Glass' (backdrop-blur-xl bg-white/70 with 1px border-white/40) for sticky navigation.",
+      "Use 'Grid Borders' for admin/data-heavy sections: border-collapse, subtle borders on right and bottom."
+    ],
+    "textures": [
+      "Subtle noise/grain overlay in hero section to replicate newsprint texture.",
+      "Tasteful cheetah/jaguar print texture overlay at low opacity (10-15%) inside specific accent cards or banner backgrounds."
+    ]
+  },
+  "layouts": {
+    "spacing": "Generous spacing. Use p-8, p-12, p-16. Containers with borders must have internal padding (p-6 or p-8).",
+    "grids": [
+      "Public Pages: 'The Tetris Grid' (Asymmetric). grid-cols-1 md:grid-cols-12 with wide gaps (gap-8).",
+      "Admin Panel: 'High Density Grid'. grid-cols-1 md:grid-cols-4 with tight gaps (gap-4 or gap-6). Use Shadcn tables for tracking."
+    ]
+  },
+  "components": {
+    "buttons": "Pill-shaped or slightly rounded (rounded-md). Smooth hover states.",
+    "navigation": "Sticky header with glassmorphism. Must have logo, 3-5 links, and CTA button. Not hidden on desktop.",
+    "forms": "Shadcn UI custom styled. Sharp 1px borders, subtle focus rings in primary blue.",
+    "charts": "Shadcn UI charts or rechart for scoring rubric data visualization.",
+    "data_tables": "Shadcn tables for admin tracking. Dense layout with thin lines."
+  },
+  "motion": {
+    "hover": "Slight lift (-translate-y-1) and subtle shadow for cards. Lighter hue for button hovers.",
+    "entrance": "Staggered fade-up for lists (Past winners).",
+    "transitions": "Use specific properties (e.g. transition: transform 0.2s ease, opacity 0.2s ease). Do NOT use 'transition: all'."
+  },
+  "accessibility": {
+    "contrast": "Ensure 4.5:1 ratio for normal text. Use text shadow over images.",
+    "focus": "Clear focus states with 2px ring in primary color.",
+    "testing": "All interactive elements MUST include data-testid attribute (kebab-case, role-based).",
+    "theme": "Support Light mode primarily, but provide a Dark mode toggle."
+  },
+  "media": {
+    "image_urls": {
+      "awards_hero": {
+        "url": "https://images.pexels.com/photos/6532364/pexels-photo-6532364.jpeg",
+        "description": "Close-up of shiny golden star trophies. Use for Hero or Landing overview."
+      },
+      "awards_statuettes": {
+        "url": "https://images.pexels.com/photos/36512552/pexels-photo-36512552.jpeg",
+        "description": "Close-up of multiple golden award statuettes. Use for Categories or Winners overview."
+      },
+      "editorial_reading": {
+        "url": "https://images.pexels.com/photos/26178655/pexels-photo-26178655.jpeg",
+        "description": "Woman reading a newspaper. Use for Editorial/About Blueprint section."
+      },
+      "cheetah_texture": {
+        "url": "https://images.unsplash.com/photo-1552169067-2e1d47319db3",
+        "description": "Black and brown leopard/cheetah print. Use for subtle background accents or borders at very low opacity."
+      },
+      "newspaper_text": {
+        "url": "https://images.unsplash.com/photo-1624269305548-1527ef905ff6",
+        "description": "Newspaper texture text. Use for 'Past Themes' or 'Guidebook' hero background."
+      }
+    },
+    "icons": "Use lucide-react (default) or install @phosphor-icons/react for elegant duotone icons."
+  },
+  "instructions_to_main_agent": [
+    "Build a sophisticated editorial layout. Think Vogue meets University Newspaper.",
+    "Ensure 'The Blueprint' brand is prominent using Royal Blue (#114488) and Jaguar Gold (#C5A059).",
+    "Do NOT use typical generic SaaS layouts for public pages. Rely on asymmetric typography and large imagery.",
+    "Use 'react-fast-marquee' for a slow, elegant editorial ribbon separating sections.",
+    "For the admin side (tracking, rubric, timelines), switch to a dense, functional dashboard mode using Shadcn UI components.",
+    "Implement a PDF export/print-friendly style (e.g., hiding navigation and using print-specific CSS rules).",
+    "Implement JWT admin auth flow (can be mocked for frontend MVP)."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Do not converge toward generic AI slop. Avoid purely symmetrical, centered layouts unless intentionally editorial.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition (e.g., transition: all). Add transitions for specific interactive elements excluding transforms.",
+    "You MUST NOT center align the app container (.App { text-align: center; }). It disrupts reading flow.",
+    "NEVER use emoji characters (\ud83e\udd16, etc.) for icons.",
+    "Every interaction needs micro-animations (hover, focus, staggered entrance).",
+    "Use sonner for toast notifications.",
+    "All interactive and key informational elements MUST include a data-testid attribute to facilitate robust automated testing."
+  ]
+}

@@ -1,0 +1,4 @@
+/* App container: no center alignment (per design guidelines) */
+.App {
+    min-height: 100vh;
+}

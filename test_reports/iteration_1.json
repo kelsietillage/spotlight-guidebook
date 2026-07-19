@@ -1,0 +1,30 @@
+{
+  "summary": "First-finish smoke tests for Spotlight Awards Guidebook. Backend endpoints, JWT auth, admin CRUD, and all key frontend pages verified. Admin add/delete winner flow works end-to-end.",
+  "tested_scope": ["backend", "frontend", "auth", "integration"],
+  "passed": [
+    "GET /api/winners returns 44 winners (26 for 2025, 18 for 2026)",
+    "GET /api/themes returns 2 themes (2025 '25 for 25', 2026 'Gamechangers')",
+    "GET /api/timelines (19), /api/nomination (13), /api/rubric (6), /api/tracking (10) return seeded rows",
+    "POST /api/auth/login with cochair@theblueprint.com/Blueprint2026! returns access_token + admin user",
+    "GET /api/auth/me returns 401 without token and admin user with Bearer token",
+    "POST /api/winners returns 401 without token, 200 with admin token",
+    "PUT and DELETE /api/winners/{id} return 200 with admin token",
+    "Frontend Home, Winners, Themes, Timelines, Nomination, Rubric, Tracking pages load successfully",
+    "Login page authenticates and redirects to /admin",
+    "Admin panel: adding a new winner and deleting it works end-to-end (verified via UI toast + API + delete button click)"
+  ],
+  "failed": [
+    {
+      "area": "Backend themes payload key",
+      "issue": "Themes objects use key 'faq' (singular) but review request mentions 'FAQ arrays'/'faqs'. Frontend Themes page reads content correctly (renders 2025/2026 tabs).",
+      "evidence": "Themes keys: ['id','created_at','year','title','tagline','description','faq']",
+      "priority": "LOW"
+    }
+  ],
+  "action_items": [
+    "None blocking. Optionally verify FAQ array shape/naming ('faq' vs 'faqs') matches frontend Themes accordion expectations if any FAQs need to render."
+  ],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true
+}

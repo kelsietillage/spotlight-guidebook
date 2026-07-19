@@ -1,0 +1,30 @@
+{
+  "summary": "Iteration 3 (v4) verification for Spotlight Awards Guidebook. Backend pytest suite (13 new tests in backend_test_v4.py) all pass — Award show placeholder captions for both 2025 and 2026, no Jane Doe rows in tracking (selection/production), Summer Phenix role='Founding Media Chair', Kelsie cute note present, 2025 theme description contains 'award system' and does NOT contain 'should be preserved by future co-chairs' or 'editorial series', POST /api/photos/upload accepts a 1x1 PNG (returns data:image/png;base64 URL, appears in GET /api/photos), rejects text/plain with 400, and requires admin (401 without token). Frontend flows verified end-to-end: Home hero shows a 4-slide + 4-dot rotating carousel (data-testid hero-slide-0..3, hero-dot-0..3); clicking hero-dot-1 changes slide 0 opacity 1→0 and slide 1 0→1; no jaguar-accent overlay in DOM; no <hr> between mission quote and hero; footer now reads only 'The Spelman Blueprint · Spotlight Award Guidebook'. Contacts page shows Kelsie cute note + Summer 'Founding Media Chair'; logged-in admin sees the 'Update your info in Admin → Contacts' link (contacts-edit-cta). Rubric page shows Nomination Bonus note mentioning +0.5. Timelines subtitle contains 'rough drafts', 'big campus events', 'April 11th'. Admin Photos tab: uploading a tiny PNG via admin-photo-file + admin-photo-upload grew grid 4→5 then delete restored to 4 (data URL persisted).",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test_v4.py",
+    "/app/test_reports/pytest/iter3_backend.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "backend_test.py (iteration 2) still asserts Jane Doe presence and >=3 co-chairs — these are intentionally stale after v4. Recommend either updating them in place or removing them so future runs only regress on backend_test_v4.py. Not a product bug.",
+    "seed_data.py: 2025 THEMES description still contains the sentence 'Going forward, all Spotlight cohorts will consist of 18 honorees — a direct nod to Spelman's founding year, 1881.' The review request wanted 'the sentence about preserving 18 for 1881 cohort structure' deleted. The literal phrase 'should be preserved by future co-chairs' is gone (test asserts absence and passes), but the semantic sentence about the 18/1881 cohort structure is still on the 2025 theme. Confirm with product whether this remaining sentence should also be removed from 2025 (it is intentionally still on 2026 as 'the 18 for 1881 standard').",
+    "server.py POST /api/photos/upload: no per-user rate limit and reads full file into memory before size check — fine for 6 MB cap, but if the cap is raised, switch to a streamed size check.",
+    "Admin.jsx PhotosAdmin: Input for file uses accept='image/*' but browser doesn't strictly enforce it — server-side mime check is correct (verified). Minor: reset the file input value after successful upload so re-uploading the same file works without page refresh."
+  ],
+  "updated_files": [
+    "/app/backend/tests/backend_test_v4.py"
+  ],
+  "success_rate": { "backend": "100% (13/13 v4 tests)", "frontend": "100% (all requested v4 flows verified)" },
+  "test_credentials": "admin: cochair@theblueprint.com / Blueprint2026! (from /app/memory/test_credentials.md)",
+  "seed_data_creation": "None persisted — 1 photo uploaded during backend pytest and 1 during Playwright were both deleted in the same run.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "v4 regression suite: /app/backend/tests/backend_test_v4.py (13 tests, requires REACT_APP_BACKEND_URL env). Old iteration_2 suite /app/backend/tests/backend_test.py has 3 tests that are now intentionally stale (Jane Doe / >=3 co-chairs) — either remove those or update them to reflect v4 seed. Key v4 testids: hero-slide-N + hero-dot-N (Home), contacts-edit-cta (logged-in only on Contacts), rubric-bonus-note (Rubric), admin-photo-year / admin-photo-caption / admin-photo-file / admin-photo-upload (Admin Photos tab), admin-photo-card-<id> + admin-photo-del-<id> for existing rows. POST /api/photos/upload is multipart/form-data with fields file, year, caption; stores base64 data URL inline (max 6 MB).",
+  "rca of the issue": "N/A — no defects found in this iteration."
+}
