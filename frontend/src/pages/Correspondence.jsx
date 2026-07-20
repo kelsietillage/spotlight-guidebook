@@ -81,8 +81,7 @@ export default function Correspondence() {
         <div className="eyebrow-line">Communications</div>
         <h1 className="font-serif-editorial text-5xl md:text-6xl tracking-tight text-[#0A0F1A]">Correspondence</h1>
         <p className="text-[#334] max-w-2xl">
-          Ready-to-send email templates for every stage of the Spotlight cycle — from awardee notifications
-          to nominator updates and staff-writer hand-offs. Fill in the highlighted placeholders and send.
+          A library of customizable email templates to simplify communication at every step of the Spotlight Awards process.
         </p>
         <div className="inline-flex items-center gap-2 text-sm text-[#3E7CB1]">
           <Mail className="w-4 h-4" /> Tap <em>Copy</em> on any template to paste it straight into Gmail.
