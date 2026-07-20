@@ -19,8 +19,9 @@ export default function Contacts() {
         <div className="eyebrow-line">People</div>
         <h1 className="font-serif-editorial text-5xl md:text-6xl tracking-tight text-[#0A0F1A]">Contacts</h1>
         <p className="text-[#334] max-w-2xl">
-          The founder of The Spelman Blueprint Spotlight Award and every co-chair who has stewarded it.
-          Chairs: log in to add yourselves or update your email anytime from the Admin panel.
+          Chairs can log in through the Admin Panel to add their name or update their email at any time.
+          If you ever need anything—whether it's advice, ideas, or a helping hand—please don't hesitate to reach out.
+          Wishing you all the best as you continue making the Spotlight Awards a tradition that celebrates the very best of Spelman.
         </p>
         {user && (
           <Link to="/admin" data-testid="contacts-edit-cta"
