@@ -48,7 +48,7 @@ export default function Tracking() {
         <div className="eyebrow-line">Templates</div>
         <h1 className="font-serif-editorial text-5xl md:text-6xl tracking-tight text-[#0A0F1A]">Tracking</h1>
         <p className="text-[#334] max-w-2xl">
-          Selection and production trackers used by past co-chairs. Duplicate these as starter sheets for new cycles.
+          Selection and production trackers used by past co-chairs. Duplicate an existing starter sheet or create a new one for each cycle.
         </p>
         <div className="border-l-4 border-[#3E7CB1] bg-[#EAF1F9]/40 p-4 max-w-3xl rounded-r-md">
           <div className="eyebrow text-[#114488]">Interview Recording Policy</div>
